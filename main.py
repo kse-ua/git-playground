@@ -27,10 +27,18 @@ print(f"Your word is '{word}'")
 
 
 while not is_game_over():
+    exist = False
     guess = input("Your next take: ")
     if guess in full_list:
-        guessed += 1
-        guesses.append(guess)
+        for x in guesses:
+            if x == guess: exist = True
+
+        if (exist == False):
+            guessed += 1
+            guesses.append(guess)
+        else:
+            print(f"Repeat input. That word is exist.")
+            continue
         if guessed == WORDS_TO_WIN:
             congratulate_user()
             exit()
