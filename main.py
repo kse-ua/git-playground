@@ -9,7 +9,6 @@ def congratulate_user():
 def is_game_over():
     return guessed == WORDS_TO_WIN or errors == ERRORS_TO_LOSE
 
-# test commit
 
 guessed = 0
 errors = 0
