@@ -15,7 +15,7 @@ def is_game_over():
 guessed = 0
 errors = 0
 
-guesses = []
+guesses = set()
 
 WORDS_TO_WIN = 5
 ERRORS_TO_LOSE = 3
@@ -30,6 +30,11 @@ print(f"Your word is '{word}'")
 
 while not is_game_over():
     guess = input("Your next take: ")
+
+    if guess in guesses:
+        print("You already guessed that word. Try a different one.")
+        continue
+        
     if guess in full_list:
         guessed += 1
         guesses.append(guess)
