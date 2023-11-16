@@ -2,10 +2,6 @@ import words_fetcher
 import random
 
 
-def congratulate_user():
-    print(f"Congratulations, you won! your words: {guesses}")
-
-
 def is_game_over():
     return guessed == WORDS_TO_WIN or errors == ERRORS_TO_LOSE
 
