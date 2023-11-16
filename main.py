@@ -28,7 +28,9 @@ print(f"Your word is '{word}'")
 
 while not is_game_over():
     guess = input("Your next take: ")
-    if guess in full_list:
+    if guessed >= 1 and guess in guesses:
+        print("Repeated word, please try another one!")
+    elif guess in full_list:
         guessed += 1
         guesses.append(guess)
         if guessed == WORDS_TO_WIN:
