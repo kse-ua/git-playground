@@ -28,18 +28,19 @@ print(f"Your word is '{word}'")
 
 while not is_game_over():
     guess = input("Your next take: ")
-    if guessed >= 1 and guess in guesses:
+    if repeated(guesses,guess) == False:
         print("Repeated word, please try another one!")
-    elif guess in full_list:
-        guessed += 1
-        guesses.append(guess)
-        if guessed == WORDS_TO_WIN:
-            congratulate_user()
-            exit()
-        print(f"That's right! {WORDS_TO_WIN - guessed} to go")
-    else:
-        errors += 1
-        print(f"Oops :( No such word, you have {ERRORS_TO_LOSE - errors} lives more")
-if errors == 3:
-    print("Thank you for trying!")
+    if repeated(guesses,guess) == True:
+        if guess in full_list:
+            guessed += 1
+            guesses.append(guess)
+            if guessed == WORDS_TO_WIN:
+                congratulate_user()
+                exit()
+            print(f"That's right! {WORDS_TO_WIN - guessed} to go")
+        else:
+            errors += 1
+            print(f"Oops :( No such word, you have {ERRORS_TO_LOSE - errors} lives more")
+        if errors == 3:
+            print("Thank you for trying!")
 
