@@ -2,6 +2,12 @@ import words_fetcher
 import random
 
 
+def congratulate_user():
+    print("=============================")
+    print("= Congratulations! You won! =")
+    print("=============================")
+
+
 def is_game_over():
     return guessed == WORDS_TO_WIN or errors == ERRORS_TO_LOSE
 
@@ -36,6 +42,9 @@ print(f"Your word is '{word}'")
 
 while not is_game_over():
     guess = input("Your next take: ")
+    if guess in guesses:
+        print("You've already guessed this word. Try again: ")
+        continue
 
     if not guess_is_valid(guess):
         continue
@@ -50,3 +59,5 @@ while not is_game_over():
     else:
         errors += 1
         print(f"Oops :( No such word, you have {ERRORS_TO_LOSE - errors} lives more")
+else:
+    is_game_over()
