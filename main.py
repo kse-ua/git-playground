@@ -8,6 +8,10 @@ def congratulate_user():
 
 def is_game_over():
     return guessed == WORDS_TO_WIN or errors == ERRORS_TO_LOSE
+def this_word_was():
+    if guess in guesses:
+        print("This word was, I dont accept it.")
+        return True
 
 
 guessed = 0
@@ -28,6 +32,8 @@ print(f"Your word is '{word}'")
 
 while not is_game_over():
     guess = input("Your next take: ")
+    if this_word_was():
+        continue
     if guess in full_list:
         guessed += 1
         guesses.append(guess)
