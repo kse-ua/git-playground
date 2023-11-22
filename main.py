@@ -8,7 +8,7 @@ def congratulate_user():
 def is_game_over():
     return guessed == WORDS_TO_WIN or errors == ERRORS_TO_LOSE
 
-
+print ('SOMETHING')
 guessed = 0
 errors = 0
 
