@@ -6,6 +6,10 @@ def congratulate_user():
     print(f"Congratulations, you won! your words: {guesses}")
 
 
+def check_whether_a_word_has_been_entered(word):
+    if word in guesses:
+        print("Enter another word!")
+
 def is_game_over():
     return guessed == WORDS_TO_WIN or errors == ERRORS_TO_LOSE
 
@@ -36,5 +40,6 @@ while not is_game_over():
             exit()
         print(f"That's right! {WORDS_TO_WIN - guessed} to go")
     else:
+        check_whether_a_word_has_been_entered(guess)
         errors += 1
         print(f"Oops :( No such word, you have {ERRORS_TO_LOSE - errors} lives more")
