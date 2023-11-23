@@ -43,3 +43,5 @@ while not is_game_over():
         check_whether_a_word_has_been_entered(guess)
         errors += 1
         print(f"Oops :( No such word, you have {ERRORS_TO_LOSE - errors} lives more")
+    if errors == 3:
+        print("Oops, you have losed!")
