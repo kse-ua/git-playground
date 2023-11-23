@@ -8,7 +8,9 @@ def congratulate_user():
 
 def check_whether_a_word_has_been_entered(word):
     if word in guesses:
-        print("Enter another word")
+       return False
+    else:
+        return True
 
 
 def is_game_over():
@@ -33,7 +35,6 @@ print(f"Your word is '{word}'")
 
 while not is_game_over():
     guess = input("Your next take: ")
-    check_whether_a_word_has_been_entered(guess)
     if guess in full_list:
         guessed += 1
         guesses.append(guess)
@@ -46,5 +47,9 @@ while not is_game_over():
         print(f"Oops :( No such word, you have {ERRORS_TO_LOSE - errors} lives more")
     if errors == 3:
         print("Oops, you have losed!")
-
+    check_whether_a_word_has_been_entered(guess)
+    if False:
+        print("Enter another word!")
+    elif True:
+        continue
 
