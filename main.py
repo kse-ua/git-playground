@@ -6,11 +6,9 @@ def congratulate_user():
     print(f"Congratulations, you won! your words: {guesses}")
 
 
-def check_whether_a_word_has_been_entered(word):
-    if word in guesses:
-       return False
-    else:
-        return True
+def word_unique(word):
+     return word in guesses
+
 
 
 def is_game_over():
@@ -32,9 +30,11 @@ word = words[random.randrange(0, len(words))]
 print(f"Can you make up {WORDS_TO_WIN} words from letters in word provided by me?")
 print(f"Your word is '{word}'")
 
-
 while not is_game_over():
     guess = input("Your next take: ")
+    if word_unique(guess):
+        print('This word has already entered')
+        continue
     if guess in full_list:
         guessed += 1
         guesses.append(guess)
@@ -45,11 +45,5 @@ while not is_game_over():
     else:
         errors += 1
         print(f"Oops :( No such word, you have {ERRORS_TO_LOSE - errors} lives more")
-    if errors == 3:
-        print("Oops, you have losed!")
-    check_whether_a_word_has_been_entered(guess)
-    if False:
-        print("Enter another word!")
-    elif True:
-        continue
-
+        if errors == 3:
+            print("Oops, you have losed!")
