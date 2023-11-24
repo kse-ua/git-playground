@@ -6,7 +6,7 @@ def congratulate_user():
     print(f"Congratulations, you won! your words: {guesses}")
 
 
-def word_unique(word):
+def word_checking(word):
      return word in guesses
 
 
@@ -32,7 +32,7 @@ print(f"Your word is '{word}'")
 
 while not is_game_over():
     guess = input("Your next take: ")
-    if word_unique(guess):
+    if word_checking(guess):
         print('This word has already entered')
         continue
     if guess in full_list:
